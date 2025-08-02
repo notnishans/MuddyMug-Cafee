@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CustomButton from "../components/CustomButton";
 import CustomField from "../components/CustomField";
+import { REGISTER_API } from "../util/apis";
 
 const SignupPage = ({ onSignupSuccess }) => {
   const [loading, setLoading] = useState(false);
@@ -14,7 +15,7 @@ const SignupPage = ({ onSignupSuccess }) => {
     setError("");
     setSuccess("");
     try {
-      const response = await fetch("http://localhost/react-auth-backend/register.php", {
+      const response = await fetch(REGISTER_API, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -30,7 +31,7 @@ const SignupPage = ({ onSignupSuccess }) => {
         setError(data.error || "Registration failed");
         setLoading(false);
       }
-    } catch (err) {
+    } catch {
       setError("Network error. Please try again later.");
       setLoading(false);
     }

@@ -3,6 +3,7 @@ import { useState } from "react";
 import CustomButton from "../components/CustomButton";
 import CustomField from "../components/CustomField";
 import { useAuthContext } from "../context/useAuthContext";
+import { LOGIN_API } from "../util/apis";
 
 const App = () => {
   const {login} = useAuthContext();
@@ -30,7 +31,7 @@ const App = () => {
       password: trimPassword,
     });
     try {
-      const response = await fetch("http://localhost/react-auth-backend/login.php", {
+      const response = await fetch(LOGIN_API, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -45,7 +46,7 @@ const App = () => {
       }else{
         setError(data.error || "Login failed");
       }
-    } catch (error) {
+    } catch {
       setError("Network error. Please try again later.");
     } finally {
       setLoading(false);

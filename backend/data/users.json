@@ -1,0 +1,16 @@
+[
+  {
+    "id": "63864d4c-eba6-4347-a7b1-67facd9d02b0",
+    "username": "demo-user",
+    "passwordHash": "e615547afb2b31829aaf966cd228f5cef7a961f616fb385d1aec185093cfbb48cbadb28ccb9a036c7d5260194d0b004269b6c3051bebedf33b0c552de6e79e30",
+    "passwordSalt": "21f707ca-c633-4c04-87b6-c7a5566c6807",
+    "createdAt": "2026-06-21T15:20:01.532Z"
+  },
+  {
+    "id": "af7f4886-b421-4b15-95b1-1e2c9a68d44e",
+    "username": "demo-user-20260621210538",
+    "passwordHash": "108431da1956d81c361f85c1723862467698cd2cfd437e85b47efeee11a68b8bc96b50213b182e43b34e615c6320337eda44440b6d814ef99d71185747fa50b0",
+    "passwordSalt": "f6dc4c0f-271c-4ea3-b671-6d25fa612622",
+    "createdAt": "2026-06-21T15:20:38.413Z"
+  }
+]

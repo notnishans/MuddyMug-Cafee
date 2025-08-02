@@ -1,5 +1,4 @@
+const BASE_URL = "/api/auth";
 
-
-const BASE_URL = "https://fakestoreapi.com";
-
-export  const LOGIN_API = `${BASE_URL}/auth/login`;
+export const LOGIN_API = `${BASE_URL}/login`;
+export const REGISTER_API = `${BASE_URL}/register`;
