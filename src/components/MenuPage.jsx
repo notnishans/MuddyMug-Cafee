@@ -154,7 +154,7 @@ const menuItems = [
   },
 ]
 
-export default function MenuPage({ cart, setCart }) {
+export default function MenuPage({ _cart, setCart }) {
   const [selectedCategory, setSelectedCategory] = useState("All")
 
   const addToCart = (item) => {
