@@ -150,6 +150,35 @@ export default function HomePage() {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0)
   }
 
+  const handleConfirmOrder = async () => {
+    try {
+      const payload = {
+        bookings,
+        cart,
+        total: (getTotalCost() + getCartTotal()),
+      }
+
+      const res = await fetch('/api/orders', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+
+      const data = await res.json()
+      if (!res.ok) {
+        throw new Error(data?.error || 'Order failed')
+      }
+
+      // clear cart and bookings on success
+      setCart([])
+      setBookings([])
+      alert(`Order placed successfully (id: ${data.orderId})`)
+    } catch (err) {
+      console.error('Order error', err)
+      alert('Failed to place order. Please try again.')
+    }
+  }
+
   const filteredTables =
     selectedCapacity === "All"
       ? tables
@@ -361,11 +390,11 @@ export default function HomePage() {
           )}
         </div>
         {(bookings.length > 0 || cart.length > 0) && (
-          <div className="booking-footer">
+            <div className="booking-footer">
             <div className="booking-total">
               <strong>Total: ${(getTotalCost() + getCartTotal()).toFixed(2)}</strong>
             </div>
-            <CustomButton name="Confirm Order" onPress={() => alert("Checkout coming soon!")} />
+            <CustomButton name="Confirm Order" onPress={handleConfirmOrder} />
           </div>
         )}
       </div>

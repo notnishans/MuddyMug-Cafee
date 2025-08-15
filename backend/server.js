@@ -9,6 +9,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const dataDir = path.join(__dirname, 'data')
 const usersFile = path.join(dataDir, 'users.json')
+const ordersFile = path.join(dataDir, 'orders.json')
 
 const app = express()
 const port = process.env.PORT || 4000
@@ -24,6 +25,11 @@ async function ensureDataFile() {
   } catch {
     await fs.writeFile(usersFile, '[]', 'utf8')
   }
+  try {
+    await fs.access(ordersFile)
+  } catch {
+    await fs.writeFile(ordersFile, '[]', 'utf8')
+  }
 }
 
 async function readUsers() {
@@ -35,6 +41,17 @@ async function readUsers() {
 async function writeUsers(users) {
   await ensureDataFile()
   await fs.writeFile(usersFile, JSON.stringify(users, null, 2), 'utf8')
+}
+
+async function readOrders() {
+  await ensureDataFile()
+  const content = await fs.readFile(ordersFile, 'utf8')
+  return JSON.parse(content)
+}
+
+async function writeOrders(orders) {
+  await ensureDataFile()
+  await fs.writeFile(ordersFile, JSON.stringify(orders, null, 2), 'utf8')
 }
 
 function hashPassword(password, salt = randomUUID()) {
@@ -123,4 +140,32 @@ await ensureDataFile()
 
 app.listen(port, () => {
   console.log(`Backend running on http://localhost:${port}`)
+})
+
+// Create an order (bookings + menu cart)
+app.post('/api/orders', async (request, response) => {
+  try {
+    const { bookings = [], cart = [], total = 0 } = request.body || {}
+
+    if ((!Array.isArray(bookings) || !Array.isArray(cart)) && typeof total !== 'number') {
+      return response.status(400).json({ success: false, error: 'Invalid order payload' })
+    }
+
+    const orders = await readOrders()
+    const newOrder = {
+      id: randomUUID(),
+      bookings,
+      cart,
+      total,
+      createdAt: new Date().toISOString(),
+    }
+
+    orders.push(newOrder)
+    await writeOrders(orders)
+
+    return response.status(201).json({ success: true, orderId: newOrder.id })
+  } catch (err) {
+    console.error('Failed to create order', err)
+    return response.status(500).json({ success: false, error: 'Failed to create order' })
+  }
 })
