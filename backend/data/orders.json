@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "id": "651cf846-0cd0-4882-bbe8-8984d1894b8b",
+    "bookings": [],
+    "cart": [
+      {
+        "id": 101,
+        "name": "Test Coffee",
+        "price": 3.5,
+        "quantity": 2
+      }
+    ],
+    "total": 7,
+    "createdAt": "2026-06-21T15:53:52.120Z"
+  }
+]

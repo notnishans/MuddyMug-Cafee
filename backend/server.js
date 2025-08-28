@@ -132,10 +132,6 @@ app.post('/api/auth/login', async (request, response) => {
   })
 })
 
-app.use((_request, response) => {
-  response.status(404).json({ success: false, error: 'Route not found' })
-})
-
 await ensureDataFile()
 
 app.listen(port, () => {
@@ -168,4 +164,9 @@ app.post('/api/orders', async (request, response) => {
     console.error('Failed to create order', err)
     return response.status(500).json({ success: false, error: 'Failed to create order' })
   }
+})
+
+// Fallback 404
+app.use((_request, response) => {
+  response.status(404).json({ success: false, error: 'Route not found' })
 })
