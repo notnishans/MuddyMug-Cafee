@@ -4,6 +4,7 @@ import { randomUUID, scryptSync, timingSafeEqual } from 'node:crypto'
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import env from './config/env.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -12,7 +13,7 @@ const usersFile = path.join(dataDir, 'users.json')
 const ordersFile = path.join(dataDir, 'orders.json')
 
 const app = express()
-const port = process.env.PORT || 4000
+const port = env.PORT
 
 app.use(cors())
 app.use(express.json())
