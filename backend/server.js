@@ -5,6 +5,7 @@ import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import env from './config/env.js'
+import { connectDB } from './config/db.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -132,6 +133,13 @@ app.post('/api/auth/login', async (request, response) => {
     },
   })
 })
+
+try {
+  await connectDB()
+} catch (err) {
+  console.error('Fatal: unable to start server without a database connection —', err.message)
+  process.exit(1)
+}
 
 await ensureDataFile()
 
