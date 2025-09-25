@@ -3,6 +3,7 @@ import cors from 'cors'
 import env from './config/env.js'
 import { connectDB } from './config/db.js'
 import healthRoutes from './routes/healthRoutes.js'
+import adminAuthRoutes from './routes/adminAuthRoutes.js'
 import { notFound } from './middleware/notFound.js'
 import { errorHandler } from './middleware/errorHandler.js'
 
@@ -12,6 +13,7 @@ app.use(cors())
 app.use(express.json())
 
 app.use('/api/health', healthRoutes)
+app.use('/api/admin/auth', adminAuthRoutes)
 
 app.use(notFound)
 app.use(errorHandler)
