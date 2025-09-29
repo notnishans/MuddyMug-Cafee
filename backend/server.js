@@ -1,5 +1,6 @@
 import express from 'express'
 import cors from 'cors'
+import helmet from 'helmet'
 import env from './config/env.js'
 import { connectDB } from './config/db.js'
 import healthRoutes from './routes/healthRoutes.js'
@@ -9,8 +10,23 @@ import { errorHandler } from './middleware/errorHandler.js'
 
 const app = express()
 
-app.use(cors())
-app.use(express.json())
+// Only the configured frontend origin may call this API from a browser.
+// Requests with no Origin header (curl, server-to-server, same-origin) are
+// allowed through — CORS is a browser-enforced concept, so blocking those
+// wouldn't stop a non-browser caller anyway; real protection for admin
+// routes comes from the JWT check, not from CORS.
+function corsOriginCheck(origin, callback) {
+  if (!origin || origin === env.CORS_ORIGIN) {
+    return callback(null, true)
+  }
+  const err = new Error('Not allowed by CORS')
+  err.status = 403
+  return callback(err)
+}
+
+app.use(helmet())
+app.use(cors({ origin: corsOriginCheck }))
+app.use(express.json({ limit: '10kb' }))
 
 app.use('/api/health', healthRoutes)
 app.use('/api/admin/auth', adminAuthRoutes)
