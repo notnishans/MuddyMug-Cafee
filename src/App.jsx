@@ -1,52 +1,36 @@
 import "./App.css";
-import LoginPage from "./pages/LoginPage";
-import SignupPage from "./pages/SignupPage";
-import { useAuthContext } from "./context/useAuthContext";
-import HomePage from "./pages/HomePage.jsx";
-import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import CafePage from "./pages/CafePage";
+import MenuPage from "./pages/MenuPage";
+import AcademyPage from "./pages/AcademyPage";
+import CoursesPage from "./pages/CoursesPage";
+import CourseDetailPage from "./pages/CourseDetailPage";
+import StudentLifePage from "./pages/StudentLifePage";
+import GalleryPage from "./pages/GalleryPage";
+import ReviewsPage from "./pages/ReviewsPage";
+import ContactPage from "./pages/ContactPage";
+import AdminLoginPage from "./pages/AdminLoginPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 const App = () => {
-  const { isAuthenticated } = useAuthContext();
-  // Show signup page by default
-  const [showSignup, setShowSignup] = useState(true);
-  const [signupSuccess, setSignupSuccess] = useState("");
-
-  const handleSignupSuccess = () => {
-    setShowSignup(false);
-    setSignupSuccess("Registration successful! Please log in.");
-  };
-
   return (
-    <div>
-      {isAuthenticated ? (
-        <HomePage />
-      ) : showSignup ? (
-        <>
-          <SignupPage onSignupSuccess={handleSignupSuccess} />
-          <div className="login-footer">
-            <p>
-              Already have an account?{' '}
-              <button onClick={() => setShowSignup(false)} style={{ color: '#667eea', background: 'none', border: 'none', cursor: 'pointer' }}>
-                Log in
-              </button>
-            </p>
-          </div>
-        </>
-      ) : (
-        <>
-          <LoginPage />
-          {signupSuccess && <div className="success-message" style={{ maxWidth: 400, margin: '20px auto' }}>{signupSuccess}</div>}
-          <div className="login-footer">
-            <p>
-              Don&apos;t have an account?{' '}
-              <button onClick={() => { setShowSignup(true); setSignupSuccess(""); }} style={{ color: '#667eea', background: 'none', border: 'none', cursor: 'pointer' }}>
-                Sign up
-              </button>
-            </p>
-          </div>
-        </>
-      )}
-    </div>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/cafe" element={<CafePage />} />
+      <Route path="/menu" element={<MenuPage />} />
+      <Route path="/academy" element={<AcademyPage />} />
+      <Route path="/courses" element={<CoursesPage />} />
+      <Route path="/courses/:slug" element={<CourseDetailPage />} />
+      <Route path="/student-life" element={<StudentLifePage />} />
+      <Route path="/gallery" element={<GalleryPage />} />
+      <Route path="/reviews" element={<ReviewsPage />} />
+      <Route path="/contact" element={<ContactPage />} />
+      <Route path="/admin/login" element={<AdminLoginPage />} />
+      <Route path="*" element={<NotFoundPage />} />
+    </Routes>
   );
 };
 
