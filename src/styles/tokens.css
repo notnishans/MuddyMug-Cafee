@@ -1,0 +1,51 @@
+/**
+ * Design tokens — PROVISIONAL.
+ *
+ * This palette and type scale are a reasonable warm/artisan starting
+ * point (coffee browns, cream, caramel accent) chosen with no real
+ * visual reference for Muddy Mug's actual branding — no logo or
+ * photos were available at the time this was written. Every value
+ * here is a CSS custom property specifically so it can be swapped for
+ * the real brand palette later by editing this one file, without
+ * touching component markup or layout.
+ */
+
+:root {
+  /* Color */
+  --color-bg: #faf6f0;
+  --color-surface: #ffffff;
+  --color-text: #2b1b12;
+  --color-text-muted: #6b5b4f;
+  --color-primary: #6f4a34;
+  --color-primary-dark: #4a2f20;
+  --color-accent: #c97b3d;
+  --color-border: #e4d9cc;
+
+  /* Typography */
+  --font-heading: 'Fraunces', Georgia, serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.25rem;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 64px;
+
+  /* Other */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --shadow-sm: 0 2px 8px rgba(43, 27, 18, 0.08);
+  --shadow-md: 0 8px 24px rgba(43, 27, 18, 0.12);
+  --header-height: 72px;
+}
