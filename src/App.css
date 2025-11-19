@@ -40,8 +40,11 @@ h4 {
   color: var(--color-text-muted);
 }
 
-/* Custom button styles (used by CustomButton.jsx — reusable button) */
+/* Custom button styles — used by CustomButton.jsx, and reused directly
+   as a className on <Link> elements (e.g. homepage CTAs), so it needs
+   to look right as either a <button> or an <a>. */
 .custom-button {
+  display: inline-block;
   background: var(--color-primary);
   color: white;
   border: none;
@@ -54,6 +57,8 @@ h4 {
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-top: var(--space-2);
+  text-decoration: none;
+  text-align: center;
 }
 
 .custom-button:hover:not(.disabled) {
@@ -70,6 +75,16 @@ h4 {
   color: var(--color-text-muted);
   cursor: not-allowed;
   box-shadow: none;
+}
+
+.custom-button--outline {
+  background: transparent;
+  color: inherit;
+  border: 2px solid currentColor;
+}
+
+.custom-button--outline:hover {
+  background: rgba(255, 255, 255, 0.15);
 }
 
 /* Message styles — generic enough to be reused by future forms
