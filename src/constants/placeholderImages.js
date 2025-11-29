@@ -25,4 +25,12 @@ export const PLACEHOLDER_IMAGES = {
     src: 'https://images.unsplash.com/photo-1718791985055-e1b06ef5961d?fm=jpg&q=70&w=1000&auto=format&fit=crop',
     alt: 'Placeholder photo of a barista pouring coffee — not an actual photo of Muddy Mug training',
   },
+  bakeryTraining: {
+    src: 'https://images.unsplash.com/photo-1658040528782-eca4ba3cd57d?fm=jpg&q=70&w=1000&auto=format&fit=crop',
+    alt: 'Placeholder photo of a baker working in a professional kitchen — not an actual photo of Muddy Mug training',
+  },
+  bartendingTraining: {
+    src: 'https://images.unsplash.com/photo-1632987794996-183d64e58f16?fm=jpg&q=70&w=1000&auto=format&fit=crop',
+    alt: 'Placeholder photo of a bartender preparing a cocktail — not an actual photo of Muddy Mug training',
+  },
 }
