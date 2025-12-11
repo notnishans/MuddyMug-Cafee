@@ -1,0 +1,22 @@
+.courses-page {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4);
+  text-align: center;
+}
+
+.courses-page h1 {
+  font-size: var(--text-3xl);
+  margin-bottom: var(--space-3);
+}
+
+.courses-page p {
+  color: var(--color-text-muted);
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-4);
+}
+
+.courses-page a {
+  color: var(--color-primary);
+  font-weight: 600;
+}
