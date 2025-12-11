@@ -5,6 +5,7 @@ import env from './config/env.js'
 import { connectDB } from './config/db.js'
 import healthRoutes from './routes/healthRoutes.js'
 import adminAuthRoutes from './routes/adminAuthRoutes.js'
+import enquiryRoutes from './routes/enquiryRoutes.js'
 import { notFound } from './middleware/notFound.js'
 import { errorHandler } from './middleware/errorHandler.js'
 
@@ -30,6 +31,7 @@ app.use(express.json({ limit: '10kb' }))
 
 app.use('/api/health', healthRoutes)
 app.use('/api/admin/auth', adminAuthRoutes)
+app.use('/api/enquiries', enquiryRoutes)
 
 app.use(notFound)
 app.use(errorHandler)

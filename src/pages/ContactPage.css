@@ -1,0 +1,78 @@
+.contact-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4);
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: var(--space-6);
+}
+
+@media (max-width: 760px) {
+  .contact-page {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-info h1 {
+  font-size: var(--text-3xl);
+  margin-bottom: var(--space-3);
+}
+
+.contact-info p {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.contact-info a {
+  color: var(--color-primary);
+}
+
+.contact-social {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-top: var(--space-3);
+}
+
+.contact-form-section h2 {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-3);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.form-group label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+textarea.custom-field {
+  resize: vertical;
+  font-family: var(--font-body);
+}
+
+select.custom-field {
+  cursor: pointer;
+}
+
+/* Honeypot field — visually hidden, but still present in the DOM and
+   tab order excluded, unlike display:none which some bots detect. */
+.contact-form__honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
