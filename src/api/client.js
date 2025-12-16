@@ -32,10 +32,10 @@ export function createApiClient(baseUrl = '') {
   }
 
   return {
-    get: (path) => request(path, { method: 'GET' }),
-    post: (path, body) => request(path, { method: 'POST', body }),
-    put: (path, body) => request(path, { method: 'PUT', body }),
-    delete: (path) => request(path, { method: 'DELETE' }),
+    get: (path, options = {}) => request(path, { method: 'GET', ...options }),
+    post: (path, body, options = {}) => request(path, { method: 'POST', body, ...options }),
+    put: (path, body, options = {}) => request(path, { method: 'PUT', body, ...options }),
+    delete: (path, options = {}) => request(path, { method: 'DELETE', ...options }),
   }
 }
 

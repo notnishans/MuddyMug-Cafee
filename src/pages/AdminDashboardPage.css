@@ -1,0 +1,38 @@
+.admin-dashboard-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--space-5) var(--space-4);
+}
+
+.admin-dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.admin-dashboard-header h1 {
+  font-size: var(--text-2xl);
+}
+
+.admin-dashboard-header__session {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.admin-dashboard-header__session .custom-button {
+  margin-top: 0;
+  padding: 8px 16px;
+  color: var(--color-text);
+}
+
+.admin-dashboard-page p {
+  color: var(--color-text-muted);
+}
