@@ -36,3 +36,8 @@
 .admin-dashboard-page p {
   color: var(--color-text-muted);
 }
+
+.admin-dashboard-section-heading {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-3);
+}

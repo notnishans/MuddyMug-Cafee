@@ -53,7 +53,7 @@ export function AdminAuthProvider({ children }) {
 
   return (
     <AdminAuthContext.Provider
-      value={{ admin, loading, isAuthenticated: Boolean(admin), login, logout }}
+      value={{ admin, token, loading, isAuthenticated: Boolean(admin), login, logout }}
     >
       {children}
     </AdminAuthContext.Provider>

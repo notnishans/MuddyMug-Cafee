@@ -1,9 +1,7 @@
 import { useAdminAuthContext } from '../context/useAdminAuthContext'
+import EnquiryList from '../components/admin/EnquiryList'
 import './AdminDashboardPage.css'
 
-// Minimal by design — this issue is about proving the auth loop works
-// end to end (login, protected route, session check, logout).
-// Enquiry and content management are separate, later issues.
 export default function AdminDashboardPage() {
   const { admin, logout } = useAdminAuthContext()
 
@@ -18,7 +16,11 @@ export default function AdminDashboardPage() {
           </button>
         </div>
       </header>
-      <p>Enquiry management and content management are coming in later issues.</p>
+
+      <section>
+        <h2 className="admin-dashboard-section-heading">Enquiries</h2>
+        <EnquiryList />
+      </section>
     </div>
   )
 }
