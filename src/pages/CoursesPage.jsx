@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { usePageMeta } from '../hooks/usePageMeta'
 import './CoursesPage.css'
 
 // REQUIRES BUSINESS CONFIRMATION: course fees, durations, curriculum,
@@ -7,6 +8,8 @@ import './CoursesPage.css'
 // (which describes the three training areas generally) and to Contact
 // for enquiries, rather than fabricating a course catalog.
 export default function CoursesPage() {
+  usePageMeta('Courses', "Course information for Muddy Mug's barista, bakery, and bartending training — coming soon.")
+
   return (
     <div className="courses-page">
       <h1>Courses</h1>

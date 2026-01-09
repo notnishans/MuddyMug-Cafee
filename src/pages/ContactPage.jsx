@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import CustomField from '../components/CustomField'
 import { apiClient } from '../api/client'
+import { usePageMeta } from '../hooks/usePageMeta'
 import './ContactPage.css'
 
 const COURSE_OPTIONS = [
@@ -21,6 +22,8 @@ const EMPTY_FORM = {
 }
 
 export default function ContactPage() {
+  usePageMeta('Contact', 'Contact Muddy Mug Bakers & Brewers in Mahendra Pool, Pokhara, or send an enquiry.')
+
   const [form, setForm] = useState(EMPTY_FORM)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')

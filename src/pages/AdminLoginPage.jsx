@@ -2,9 +2,12 @@ import { useState } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
 import CustomField from '../components/CustomField'
 import { useAdminAuthContext } from '../context/useAdminAuthContext'
+import { usePageMeta } from '../hooks/usePageMeta'
 import './AdminLoginPage.css'
 
 export default function AdminLoginPage() {
+  usePageMeta('Admin Login')
+
   const { login, isAuthenticated, loading } = useAdminAuthContext()
   const navigate = useNavigate()
   const [username, setUsername] = useState('')

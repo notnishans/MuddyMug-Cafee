@@ -1,4 +1,5 @@
 import { PLACEHOLDER_IMAGES } from '../constants/placeholderImages'
+import { usePageMeta } from '../hooks/usePageMeta'
 import './MenuPage.css'
 
 // REQUIRES BUSINESS CONFIRMATION: no verified menu items, categories,
@@ -8,6 +9,8 @@ import './MenuPage.css'
 // real menu (likely backed by a MenuItem model — not built yet since
 // there's no data to populate it with).
 export default function MenuPage() {
+  usePageMeta('Menu', "Menu information for Muddy Mug Bakers & Brewers in Pokhara — coming soon.")
+
   return (
     <div className="menu-page">
       <section className="menu-intro">

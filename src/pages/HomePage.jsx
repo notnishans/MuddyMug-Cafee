@@ -1,9 +1,15 @@
 import { Link } from 'react-router-dom'
 import IdentityCard from '../components/IdentityCard'
 import { PLACEHOLDER_IMAGES } from '../constants/placeholderImages'
+import { usePageMeta } from '../hooks/usePageMeta'
 import './HomePage.css'
 
 export default function HomePage() {
+  usePageMeta(
+    null,
+    'Café, bakery, and hospitality training centre in Mahendra Pool, Pokhara. Coffee, bakery, and barista, bakery, and bartending training.'
+  )
+
   return (
     <div className="home-page">
       <section

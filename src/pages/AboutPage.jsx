@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { usePageMeta } from '../hooks/usePageMeta'
 import './AboutPage.css'
 
 // Intentionally text-focused and modest in length. Founder names,
@@ -8,6 +9,8 @@ import './AboutPage.css'
 // fabricated one. Add those sections once REQUIRES BUSINESS
 // CONFIRMATION items are actually confirmed.
 export default function AboutPage() {
+  usePageMeta('About', 'About Muddy Mug Bakers & Brewers, a café, bakery, and hospitality training centre in Pokhara.')
+
   return (
     <div className="about-page">
       <section className="about-intro">

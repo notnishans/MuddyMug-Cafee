@@ -1,3 +1,4 @@
+import { usePageMeta } from '../hooks/usePageMeta'
 import './ReviewsPage.css'
 
 // REQUIRES BUSINESS CONFIRMATION: no verified customer testimonials
@@ -6,6 +7,8 @@ import './ReviewsPage.css'
 // override permission for placeholder testimonials. This links to
 // places real reviews may already exist instead of inventing any.
 export default function ReviewsPage() {
+  usePageMeta('Reviews', 'Customer reviews for Muddy Mug Bakers & Brewers in Pokhara.')
+
   return (
     <div className="reviews-page">
       <h1>Reviews</h1>

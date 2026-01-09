@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom'
 import { PLACEHOLDER_IMAGES } from '../constants/placeholderImages'
+import { usePageMeta } from '../hooks/usePageMeta'
 import './CafePage.css'
 
 // No menu items, prices, or hours here — none are verified. This page
 // describes the café generally; actual items belong on the Menu page
 // once real data is available.
 export default function CafePage() {
+  usePageMeta('Café', 'Coffee, beverages, and bakery items at Muddy Mug Bakers & Brewers in Pokhara.')
+
   return (
     <div className="cafe-page">
       <section

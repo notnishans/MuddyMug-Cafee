@@ -1,8 +1,11 @@
 import { useAdminAuthContext } from '../context/useAdminAuthContext'
 import EnquiryList from '../components/admin/EnquiryList'
+import { usePageMeta } from '../hooks/usePageMeta'
 import './AdminDashboardPage.css'
 
 export default function AdminDashboardPage() {
+  usePageMeta('Admin Dashboard')
+
   const { admin, logout } = useAdminAuthContext()
 
   return (

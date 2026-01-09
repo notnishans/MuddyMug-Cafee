@@ -1,4 +1,5 @@
 import { PLACEHOLDER_IMAGES } from '../constants/placeholderImages'
+import { usePageMeta } from '../hooks/usePageMeta'
 import './GalleryPage.css'
 
 // REQUIRES BUSINESS CONFIRMATION: no real Muddy Mug photos exist yet.
@@ -16,6 +17,8 @@ const GALLERY_ITEMS = [
 ]
 
 export default function GalleryPage() {
+  usePageMeta('Gallery', 'Photo gallery for Muddy Mug Bakers & Brewers in Pokhara.')
+
   return (
     <div className="gallery-page">
       <section className="gallery-intro">

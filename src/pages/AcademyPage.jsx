@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import IdentityCard from '../components/IdentityCard'
 import { PLACEHOLDER_IMAGES } from '../constants/placeholderImages'
+import { usePageMeta } from '../hooks/usePageMeta'
 import './AcademyPage.css'
 
 // REQUIRES BUSINESS CONFIRMATION: course fees, durations, curriculum,
@@ -8,6 +9,8 @@ import './AcademyPage.css'
 // here. All three cards link to /courses and /contact rather than to
 // specific course details that don't exist yet.
 export default function AcademyPage() {
+  usePageMeta('Academy', 'Barista, bakery, and bartending training at Muddy Mug Bakers & Brewers in Pokhara.')
+
   return (
     <div className="academy-page">
       <section className="academy-intro">
