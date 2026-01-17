@@ -89,6 +89,7 @@ export default function EnquiryList() {
             <div className="enquiry-card__actions">
               <select
                 className="custom-field"
+                aria-label={`Status for enquiry from ${enquiry.name}`}
                 value={enquiry.status}
                 onChange={(e) => handleStatusChange(enquiry._id, e.target.value)}
               >
@@ -101,6 +102,7 @@ export default function EnquiryList() {
               <button
                 type="button"
                 className="custom-button custom-button--outline"
+                aria-label={`Delete enquiry from ${enquiry.name}`}
                 onClick={() => handleDelete(enquiry._id)}
               >
                 Delete

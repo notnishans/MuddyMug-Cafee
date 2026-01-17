@@ -22,27 +22,30 @@ export default function AcademyPage() {
       </section>
 
       <section className="academy-grid">
-        <IdentityCard
-          image={PLACEHOLDER_IMAGES.learnAcademy}
-          title="Barista Training"
-          description="Hands-on training in coffee preparation and barista skills."
-          linkTo="/courses"
-          linkLabel="See Courses"
-        />
-        <IdentityCard
-          image={PLACEHOLDER_IMAGES.bakeryTraining}
-          title="Bakery Training"
-          description="Practical training in bakery skills and techniques."
-          linkTo="/courses"
-          linkLabel="See Courses"
-        />
-        <IdentityCard
-          image={PLACEHOLDER_IMAGES.bartendingTraining}
-          title="Bartending Training"
-          description="Practical training in bartending skills."
-          linkTo="/courses"
-          linkLabel="See Courses"
-        />
+        <h2 className="academy-grid__heading">Our Training Areas</h2>
+        <div className="academy-grid__cards">
+          <IdentityCard
+            image={PLACEHOLDER_IMAGES.learnAcademy}
+            title="Barista Training"
+            description="Hands-on training in coffee preparation and barista skills."
+            linkTo="/courses"
+            linkLabel="See Courses"
+          />
+          <IdentityCard
+            image={PLACEHOLDER_IMAGES.bakeryTraining}
+            title="Bakery Training"
+            description="Practical training in bakery skills and techniques."
+            linkTo="/courses"
+            linkLabel="See Courses"
+          />
+          <IdentityCard
+            image={PLACEHOLDER_IMAGES.bartendingTraining}
+            title="Bartending Training"
+            description="Practical training in bartending skills."
+            linkTo="/courses"
+            linkLabel="See Courses"
+          />
+        </div>
       </section>
 
       <section className="academy-cta">

@@ -19,13 +19,22 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: var(--space-4);
+}
+
+.academy-grid__heading {
+  font-size: var(--text-2xl);
+  text-align: center;
+  margin-bottom: var(--space-4);
+}
+
+.academy-grid__cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-4);
 }
 
 @media (max-width: 760px) {
-  .academy-grid {
+  .academy-grid__cards {
     grid-template-columns: 1fr;
   }
 }

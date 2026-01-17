@@ -33,7 +33,10 @@ h4 {
 .custom-field:focus {
   outline: none;
   border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgba(201, 123, 61, 0.15);
+  /* Replaces the browser's default focus outline, so this needs to be
+     clearly visible on its own — a faint ring isn't a real substitute
+     for keyboard users. */
+  box-shadow: 0 0 0 3px rgba(201, 123, 61, 0.45);
 }
 
 .custom-field::placeholder {
