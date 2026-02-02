@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "node server.js",
     "start": "node server.js",
-    "seed:admin": "node utils/seedAdmin.js"
+    "seed:admin": "node utils/seedAdmin.js",
+    "test": "vitest run"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
@@ -19,5 +20,8 @@
   },
   "overrides": {
     "qs": "6.16.0"
+  },
+  "devDependencies": {
+    "vitest": "^5.0.0"
   }
 }
